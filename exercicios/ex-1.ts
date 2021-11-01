@@ -5,17 +5,17 @@
 
 const contaVogais = (palavra: string): Number => {
     // converte para minusculo e quebra em uma lista para utilizar filter
-    const arrayPalavra = palavra.toLowerCase().split('').filter((caractere: string): Boolean => {
-        return 'aeiou'.includes(caractere)
+    const arrayPalavra : Array<string> = palavra.toLowerCase().split('').filter((caractere: string): Boolean => {
+        return 'aeiou'.includes(caractere);
     })
-    return arrayPalavra.length
+    return arrayPalavra.length;
 }
 
 console.log(contaVogais('cheiadevogaus'))
 
 
 const ativa = (): void => {
-    const valorInput = document.getElementById("usuario") as HTMLInputElement
-    const inputTratado : string = valorInput.value
-    alert(contaVogais(inputTratado))
+    const valorInput = document.getElementById("usuario") as HTMLInputElement;
+    const inputTratado : string = valorInput.value;
+    alert(contaVogais(inputTratado));
 }
