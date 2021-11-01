@@ -4,22 +4,24 @@
 //  c) O valor médio.
 // Demonstre essa função com o paradigma funcional e imperativo
 
-const analisaLista = (lista : [...]) : [...] => {
-    const listaAux = lista.filter((elemento) => !isNaN(elemento)) 
-    if(lista.length === listaAux.length) return listaAux
-    else return [false]
+
+// verifica se a lista passada é somente de números
+const analisaLista = (lista : Array<Number>) : Array<Number> => {
+    const listaAux : Array<Number> = lista.filter((elemento) => !isNaN(elemento)) ;
+    if(lista.length === listaAux.length) return listaAux;
+    else return [-1];
 }
 
 
-const retiraValores = (lista : [...]) : [...] => {
-    const listaAux = analisaLista(lista)
-    if(listaAux && listaAux[0] != false){
-        const maiorValor = lista.reduce((valorAnterior, valorAtual) => Math.max(valorAnterior, valorAtual))
-        const menorValor = lista.reduce((valorAnterior, valorAtual) => Math.min(valorAnterior, valorAtual))
-        const mediaValores = (lista.reduce((valorAnterior, valorAtual) => valorAnterior + valorAtual)) / lista.length
-        return [maiorValor, menorValor, mediaValores] 
+const retiraValores = (lista : Array<Number>) : Array<Number> => {
+    const listaAux : Array<Number> = analisaLista(lista);
+    if(listaAux && listaAux[0] != -1){
+        const maiorValor : Number = lista.reduce((valorAnterior, valorAtual) => Math.max(valorAnterior, valorAtual));
+        const menorValor : Number = lista.reduce((valorAnterior, valorAtual) => Math.min(valorAnterior, valorAtual));
+        const mediaValores : Number = (lista.reduce((valorAnterior, valorAtual) => valorAnterior + valorAtual)) / lista.length;
+        return [maiorValor, menorValor, mediaValores] ;
     }
-    else return []
+    else return [-1];
 }
-console.log(retiraValores([1, 2, 3, 4, 5]))
-console.log(retiraValores(["aaa", 1, 3]))
+console.log(retiraValores([1, 2, 3, 4, 5]));
+console.log(retiraValores(["aaa", 1, 3]));

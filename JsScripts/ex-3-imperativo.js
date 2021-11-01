@@ -24,7 +24,7 @@ var retiraValores = function (lista) {
     if (validaLista)
         return [maiorValor, menorValor, mediaValores];
     else
-        return [];
+        return [-1];
 };
 console.log(retiraValores([1, 2, 3, 4, 5]));
 console.log(retiraValores(["aaa", 1, 3]));
