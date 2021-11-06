@@ -3,9 +3,8 @@
 //   b) Dar um exemplo de uso com uma palavra recebida via input no formulário.
 var Palavra = /** @class */ (function () {
     function Palavra() {
-        // atributo
         var _this = this;
-        // método
+        // método(s)
         // setter
         this.defineNome = function (nome) {
             _this.nome = nome;

@@ -24,12 +24,12 @@ class Palavra{
     }
 }
 
-const palavra = new Palavra
-palavra.defineNome("Joao")
-console.log(palavra.contaVogais())
+const palavra = new Palavra;
+palavra.defineNome("Joao");
+console.log(palavra.contaVogais());
 
 const ativa = () : void => {
-    const novaPalavra = new Palavra 
-    novaPalavra.defineNome(document.getElementById("usuario").value)
-    alert(novaPalavra.contaVogais()) 
+    const novaPalavra = new Palavra ;
+    novaPalavra.defineNome(document.getElementById("usuario").value);
+    alert(novaPalavra.contaVogais()) ;
 }
