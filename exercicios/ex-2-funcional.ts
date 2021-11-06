@@ -21,7 +21,7 @@ const lista : Array<Cientista> = [
 
 
 // verifica se o id passado é válido
-const verificaIndice = (identificador : Number) : Boolean => {
+const verificaIndice = (lista : Array<Cientista>, identificador : Number) : Boolean => {
     if((lista.findIndex((objeto : Cientista) => objeto.id === identificador)) != -1){
         return true;
     }
@@ -31,53 +31,64 @@ const verificaIndice = (identificador : Number) : Boolean => {
 }
 
 
-const pegaBio = (identificador : Number): String => {   
-    if(verificaIndice(identificador)) {
-        const objeto : Cientista = lista.find((objeto : Cientista) => objeto.id === identificador);
-        return objeto.bio;
+const pegaBio = (lista : Array<Cientista>, identificador : number): String => {   
+    if(verificaIndice(lista, identificador)) {
+        if(lista.find((objeto : Cientista) => objeto.id === identificador)) {
+            // não existe id = 0, por isso o uso do -1
+            return lista[identificador - 1].bio;
+        }
     }
     else {
         return "Id inválido!";
     }
 }
-console.log(pegaBio(1));
+console.log(pegaBio(lista, 1));
 
 
-const pegaNome = (identificador : Number) : String => {
-    if(verificaIndice(identificador)) {
-        const objeto : Cientista = lista.find((objeto : Cientista) => objeto.id === identificador);
-        return objeto.name;
+const pegaNome = (lista : Array<Cientista>, identificador : number) : String => {
+    if(verificaIndice(lista, identificador)) {
+        if(lista.find((objeto : Cientista) => objeto.id === identificador)) {
+            // não existe id = 0, por isso o uso do -1
+            return lista[identificador - 1].name;
+        }
     }
     else {
         return "Id inválido!";
     }
 }
-console.log(pegaNome(1));
+console.log(pegaNome(lista, 1));
 
 
-const deletaItem = (identificador : Number) : void => {
+const deletaItem = (lista : Array<Cientista>, identificador : Number) : Array<Cientista> => {
     // indice necessário, por isso a não utilização da verificaInidice
-    const indice = lista.findIndex((objeto : Cientista) => objeto.id === identificador);
-    if(indice !== -1) {
-        lista.splice(indice, 1);
+    if((lista.findIndex((objeto : Cientista) => objeto.id === identificador)) !== -1) {
+        return lista.filter((objeto : Cientista) => objeto.id != identificador);
     }
     else {
         console.log("Id inválido!");
     } 
 }
-deletaItem(1);
-console.log(lista);
+console.log(deletaItem(lista, 1));
 
 
-const modificaNome = (identificador : Number, nome : String): void => {
+const modificaNome = (lista : Array<Cientista>, identificador : Number, nome : String) : Array<Cientista> => {
     // indice necessário, por isso a não utilização da verificaInidice
-    const indice = lista.findIndex((objeto : Cientista) => objeto.id === identificador);
-    if(indice !== -1) {
-        lista[indice].name = nome;
+    if((lista.findIndex((objeto : Cientista) => objeto.id === identificador)) !== -1) {
+        return lista.filter((objeto : Cientista) => { 
+            // se objeto id == identificador, entao modifica o nome e retorna o objeto
+            if(objeto.id == identificador) {
+                objeto.name = nome;
+                return true;
+            }
+            // se não apenas retorna o objeto
+            else {
+                return true;
+            }
+        });
     } 
     else {
         console.log("Id inválido!");
     }
 }
-modificaNome(2, "TESTANDO");
+modificaNome(lista, 2, "TESTANDO");
 console.log(lista);

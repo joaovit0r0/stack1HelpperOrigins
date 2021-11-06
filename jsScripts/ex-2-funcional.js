@@ -11,7 +11,7 @@ var lista = [
     { "id": 4, "name": "Nicolau Copérnico", "bio": "Nicolau Copérnico foi um astrônomo e matemático polonês que desenvolveu a teoria heliocêntrica do Sistema Solar." }
 ];
 // verifica se o id passado é válido
-var verificaIndice = function (identificador) {
+var verificaIndice = function (lista, identificador) {
     if ((lista.findIndex(function (objeto) { return objeto.id === identificador; })) != -1) {
         return true;
     }
@@ -19,47 +19,58 @@ var verificaIndice = function (identificador) {
         return false;
     }
 };
-var pegaBio = function (identificador) {
-    if (verificaIndice(identificador)) {
-        var objeto = lista.find(function (objeto) { return objeto.id === identificador; });
-        return objeto.bio;
+var pegaBio = function (lista, identificador) {
+    if (verificaIndice(lista, identificador)) {
+        if (lista.find(function (objeto) { return objeto.id === identificador; })) {
+            // não existe id = 0, por isso o uso do -1
+            return lista[identificador - 1].bio;
+        }
     }
     else {
         return "Id inválido!";
     }
 };
-console.log(pegaBio(1));
-var pegaNome = function (identificador) {
-    if (verificaIndice(identificador)) {
-        var objeto = lista.find(function (objeto) { return objeto.id === identificador; });
-        return objeto.name;
+console.log(pegaBio(lista, 1));
+var pegaNome = function (lista, identificador) {
+    if (verificaIndice(lista, identificador)) {
+        if (lista.find(function (objeto) { return objeto.id === identificador; })) {
+            // não existe id = 0, por isso o uso do -1
+            return lista[identificador - 1].name;
+        }
     }
     else {
         return "Id inválido!";
     }
 };
-console.log(pegaNome(1));
-var deletaItem = function (identificador) {
+console.log(pegaNome(lista, 1));
+var deletaItem = function (lista, identificador) {
     // indice necessário, por isso a não utilização da verificaInidice
-    var indice = lista.findIndex(function (objeto) { return objeto.id === identificador; });
-    if (indice !== -1) {
-        lista.splice(indice, 1);
+    if ((lista.findIndex(function (objeto) { return objeto.id === identificador; })) !== -1) {
+        return lista.filter(function (objeto) { return objeto.id != identificador; });
     }
     else {
         console.log("Id inválido!");
     }
 };
-deletaItem(1);
-console.log(lista);
-var modificaNome = function (identificador, nome) {
+console.log(deletaItem(lista, 1));
+var modificaNome = function (lista, identificador, nome) {
     // indice necessário, por isso a não utilização da verificaInidice
-    var indice = lista.findIndex(function (objeto) { return objeto.id === identificador; });
-    if (indice !== -1) {
-        lista[indice].name = nome;
+    if ((lista.findIndex(function (objeto) { return objeto.id === identificador; })) !== -1) {
+        return lista.filter(function (objeto) {
+            // se objeto id == identificador, entao modifica o nome e retorna o objeto
+            if (objeto.id == identificador) {
+                objeto.name = nome;
+                return true;
+            }
+            // se não apenas retorna o objeto
+            else {
+                return true;
+            }
+        });
     }
     else {
         console.log("Id inválido!");
     }
 };
-modificaNome(2, "TESTANDO");
+modificaNome(lista, 2, "TESTANDO");
 console.log(lista);
