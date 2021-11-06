@@ -5,12 +5,12 @@
 class Palavra{
     
     // atributo(s)
-    private nome : string;
+    private _nome : string;
 
     // método(s)
 
     constructor(nome : string) {
-        this.nome = nome;
+        this._nome = nome;
     }
 
     public contaVogais = () : number => {
