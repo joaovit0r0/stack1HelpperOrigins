@@ -9,8 +9,7 @@ class Palavra{
 
     // método(s)
 
-    // setter
-    public defineNome = (nome : string) : void => {
+    constructor(nome : string) {
         this.nome = nome;
     }
 
@@ -24,12 +23,10 @@ class Palavra{
     }
 }
 
-const palavra = new Palavra;
-palavra.defineNome("Joao");
+const palavra = new Palavra("Joao");
 console.log(palavra.contaVogais());
 
 const ativa = () : void => {
-    const novaPalavra = new Palavra ;
-    novaPalavra.defineNome(document.getElementById("usuario").value);
+    const novaPalavra = new Palavra(document.getElementById("usuario").value) ;
     alert(novaPalavra.contaVogais()) ;
 }

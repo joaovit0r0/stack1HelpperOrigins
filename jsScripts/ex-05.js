@@ -2,13 +2,9 @@
 //   a) Dar um exemplo de uso com uma palavra recebida via parâmetro da função.
 //   b) Dar um exemplo de uso com uma palavra recebida via input no formulário.
 var Palavra = /** @class */ (function () {
-    function Palavra() {
+    // método(s)
+    function Palavra(nome) {
         var _this = this;
-        // método(s)
-        // setter
-        this.defineNome = function (nome) {
-            _this.nome = nome;
-        };
         this.contaVogais = function () {
             // converte para minusculo e quebra em um array para utilizar filter
             var arrayVogais = _this.nome.toLowerCase().split('').filter(function (caractere) {
@@ -17,14 +13,13 @@ var Palavra = /** @class */ (function () {
             });
             return arrayVogais.length;
         };
+        this.nome = nome;
     }
     return Palavra;
 }());
-var palavra = new Palavra;
-palavra.defineNome("Joao");
+var palavra = new Palavra("Joao");
 console.log(palavra.contaVogais());
 var ativa = function () {
-    var novaPalavra = new Palavra;
-    novaPalavra.defineNome(document.getElementById("usuario").value);
+    var novaPalavra = new Palavra(document.getElementById("usuario").value);
     alert(novaPalavra.contaVogais());
 };
