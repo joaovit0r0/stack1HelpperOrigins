@@ -7,13 +7,13 @@ var Palavra = /** @class */ (function () {
         var _this = this;
         this.contaVogais = function () {
             // converte para minusculo e quebra em um array para utilizar filter
-            var arrayVogais = _this.nome.toLowerCase().split('').filter(function (caractere) {
+            var arrayVogais = _this._nome.toLowerCase().split('').filter(function (caractere) {
                 // se o caractere passado for a, e, i, o OU u retorna true
                 return 'aeiou'.includes(caractere);
             });
             return arrayVogais.length;
         };
-        this.nome = nome;
+        this._nome = nome;
     }
     return Palavra;
 }());

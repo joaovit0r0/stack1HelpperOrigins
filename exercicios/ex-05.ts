@@ -15,7 +15,7 @@ class Palavra{
 
     public contaVogais = () : number => {
         // converte para minusculo e quebra em um array para utilizar filter
-        const arrayVogais : Array<string> = this.nome.toLowerCase().split('').filter((caractere : string) =>{
+        const arrayVogais : Array<string> = this._nome.toLowerCase().split('').filter((caractere : string) =>{
             // se o caractere passado for a, e, i, o OU u retorna true
             return 'aeiou'.includes(caractere);
         })
