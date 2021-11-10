@@ -1,10 +1,11 @@
 "use strict";
-exports.__esModule = true;
-var personFactory_1 = require("./models-ex-08/personFactory");
+Object.defineProperty(exports, "__esModule", { value: true });
+var personFactory_1 = require("../exercicios/models-ex-08/personFactory");
+var typeGuard_1 = require("../exercicios/models-ex-08/typeGuard");
 var personFactory = new personFactory_1.PersonFactory();
-var person1 = personFactory.getPerson(1, 'Ada Lovelace', 'Ada Lovelace, foi uma matemática e escritora inglesa reconhecida por ter escrito o primeiro algoritmo para ser processado por uma máquina');
-console.log(person1.name);
-console.log(person1.bio);
-console.log(person1);
-var person2 = personFactory.getPerson(2, 'Nikola Tesla', 'Bio do telsa');
-console.log(person2);
+var person1 = personFactory.getPerson(1, 'Ada Lovelace', "Ada's bio");
+if ((0, typeGuard_1.typeGuardAda)(person1)) {
+    console.log(person1.name);
+    console.log(person1.bio);
+    console.log(person1.whoCreatedAdaLanguage);
+}

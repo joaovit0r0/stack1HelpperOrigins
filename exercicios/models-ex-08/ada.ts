@@ -1,7 +1,7 @@
 import { Person } from "./person";
 
 export class Ada extends Person {
-    constructor(id : number, name : string, bio : string, private _whoCreatedAdaLanguage : string){
+    constructor(id : number, name : string, bio : string, private _whoCreatedAdaLanguage : string = 'Jean Ichbiah'){
         super(id, name, bio);
     }
 

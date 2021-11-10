@@ -8,7 +8,7 @@ import { Nicolau } from "./nicolau"
 export class PersonFactory {
     public getPerson(id : number, name : string, bio : string) : Person {
         if(name.toLowerCase() === "ada lovelace") {
-            return new Ada(id, name, bio, name);
+            return new Ada(id, name, bio);
         }
         else if(name.toLowerCase() === "alan turing") {
             return new Alan(id, name, bio);
@@ -18,6 +18,9 @@ export class PersonFactory {
         }
         else if(name.toLowerCase() === "nicolau copernico") {
             return new Nicolau(id, name, bio);
+        }
+        else {
+            return new Person(-1, '-1', '-1')
         }
     }
 }

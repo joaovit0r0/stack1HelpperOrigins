@@ -14,12 +14,13 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.Ada = void 0;
 var person_1 = require("./person");
 var Ada = /** @class */ (function (_super) {
     __extends(Ada, _super);
     function Ada(id, name, bio, _whoCreatedAdaLanguage) {
+        if (_whoCreatedAdaLanguage === void 0) { _whoCreatedAdaLanguage = 'Jean Ichbiah'; }
         var _this = _super.call(this, id, name, bio) || this;
         _this._whoCreatedAdaLanguage = _whoCreatedAdaLanguage;
         return _this;
