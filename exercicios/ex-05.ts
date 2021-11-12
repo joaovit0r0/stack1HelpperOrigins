@@ -1,32 +1,11 @@
 // 5 - Criar uma classe que retorne a quantidade de vogais da palavra passada.
 //   a) Dar um exemplo de uso com uma palavra recebida via parâmetro da função.
 //   b) Dar um exemplo de uso com uma palavra recebida via input no formulário.
+import { Word } from "./model-ex-05/word";
 
-class Palavra{
-    
-    // atributo(s)
-    private _nome : string;
-
-    // método(s)
-
-    constructor(nome : string) {
-        this._nome = nome;
-    }
-
-    public contaVogais = () : number => {
-        // converte para minusculo e quebra em um array para utilizar filter
-        const arrayVogais : Array<string> = this._nome.toLowerCase().split('').filter((caractere : string) =>{
-            // se o caractere passado for a, e, i, o OU u retorna true
-            return 'aeiou'.includes(caractere);
-        })
-        return arrayVogais.length;
-    }
-}
-
-const palavra = new Palavra("Joao");
-console.log(palavra.contaVogais());
+const word = new Word("Joao");
+console.log(word.countVowels());
 
 const ativa = () : void => {
-    const novaPalavra = new Palavra(document.getElementById("usuario").value) ;
-    alert(novaPalavra.contaVogais()) ;
+    word.activate()
 }
