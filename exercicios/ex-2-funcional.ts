@@ -49,7 +49,7 @@ const pegaNome = (lista : Array<Cientista>, identificador : number) : String => 
     if(verificaIndice(lista, identificador)) {
         if(lista.find((objeto : Cientista) => objeto.id === identificador)) {
             // não existe id = 0, por isso o uso do -1
-            return lista[identificador - 1].name;
+            return lista.find((objeto: Cientista) => objeto.id === identificador).name;
         }
     }
     else {
