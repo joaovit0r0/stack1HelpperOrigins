@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 4</title>
+    <script src="../jsScripts/ex-4.js"></script>
+</head>
+<body>
+    <h1>Exercício 4</h1>
+    <table width="1500" border="1">
+        <thead>
+            <td>ID</td>
+            <td>NAME</td>
+            <td>BIO</td>
+            <td>ACÃO</td>
+        </thead>
+        <tbody id="tbody">
+
+        </tbody>
+    </table>
+    <br></br>
+    <h2>Alterar Dados</h2>
+    <p>Digite os dados nos campos abaixo para altera-los à partir do ID</p>
+    <form>
+        ID: <input type="text" id="identificador"/></br></br>
+        NOME: <input type="text" id="nome"/></br></br>
+        BIO: <textarea id="bio"></textarea></br></br>
+        <button type="button" onclick="alterarDados()">Alterar</button>
+    </form>
+    
+</body>
+</html>
