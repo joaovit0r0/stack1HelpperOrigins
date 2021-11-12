@@ -18,11 +18,11 @@ const listarTabela = () : void => {
     tbody.innerHTML = '' // feito para não duplicar os itens da tabela
     // cria as linhas e colunas
     lista.forEach((objeto : Cientista) => {
-        const tr = tbody.insertRow();
-        const tdId = tr.insertCell();
-        const tdNome = tr.insertCell();
-        const tdBio = tr.insertCell();
-        const tdAcao = tr.insertCell();
+        const tr = tbody.insertRow() as HTMLTableRowElement;
+        const tdId = tr.insertCell() as HTMLTableCellElement;
+        const tdNome = tr.insertCell() as HTMLTableCellElement;
+        const tdBio = tr.insertCell() as HTMLTableCellElement;
+        const tdAcao = tr.insertCell() as HTMLTableCellElement;
         // Adiciona conteúdo as colunas
         tdId.innerHTML = objeto.id;
         tdNome.innerHTML = objeto.name;
@@ -36,9 +36,9 @@ const alterarDados = () : void => {
     // pega os elementos do input, trata-os  e chama a modificaDados
     const inputId = document.getElementById("identificador") as HTMLInputElement;
     const valorId = +inputId.value; // + utilzado para converter para number
-    const inputNome = document.getElementById("nome") as HTMlInputElement;
+    const inputNome = document.getElementById("nome") as HTMLInputElement;
     const valorNome = inputNome.value;
-    const inputBio = document.getElementById("bio") as HTLMInputElement;
+    const inputBio = document.getElementById("bio") as HTMLInputElement;
     const valorBio = inputBio.value;
     modificaDados(valorId, valorNome, valorBio);
     listarTabela(); // lista a tabela atualizada novamente
